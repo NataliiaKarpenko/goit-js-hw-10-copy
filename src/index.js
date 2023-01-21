@@ -2,7 +2,7 @@ import './css/styles.css';
 import debounce from 'lodash.debounce';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { fetchCountries } from './js-templates/fetchCountries';
-import { createCountryList } from './js-templates/createCountryList';
+import { createCountryList } from './js-templates/createCountrylist';
 import { createCountryCard } from './js-templates/createCountryCard';
 
 const DEBOUNCE_DELAY = 300;
@@ -31,21 +31,11 @@ function renderCountryInfo(data) {
   } else if ((data.length >= 2) & (data.length <= 10)) {
     clearAll();
     countryListRef.innerHTML = createCountryList(data);
-    // const countryList = data
-    //   .map(country => createCountryList(country))
-    //   .join('');
-    // countryListRef.innerHTML = countryList;
   } else if (data.length === 1) {
     clearAll();
     countryInfoRef.innerHTML = createCountryCard(data);
   }
 }
-
-// function createCountryList(countryInfo) {
-//   return `
-//   <li class="country-list-item"><img src="${countryInfo.flags.svg}" class="flag-image" alt="flag" width="40"><span>
-//   ${countryInfo.name.official}</span></li>`;
-// }
 
 function renderMistake(err) {
   if (err.message === '404') {
