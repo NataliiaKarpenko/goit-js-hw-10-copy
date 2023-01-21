@@ -1,5 +1,9 @@
-// export const createCountryList = (countryInfo) => {
-//   return `
-//   <li class="country-list-item"><img src="${countryInfo.flags.svg}" class="flag-image" alt="flag" width="40"><span>
-//   ${countryInfo.name.official}</span></li>`;
-// };
+export const createCountryList = countriesInfo =>
+  countriesInfo
+    .map(
+      country =>
+        `
+<li class="country-list-item"><img src="${country.flags.svg}" class="flag-image" alt="flag" width="40"><span>
+  ${country.name.official}</span></li>`
+    )
+    .join('');
