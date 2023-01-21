@@ -20,11 +20,11 @@ function handleInput(e) {
     clearAll();
     return;
   } else {
-    fetchCountries(countryName).then(renderCountryList).catch(renderMistake);
+    fetchCountries(countryName).then(renderCountryInfo).catch(renderMistake);
   }
 }
 
-function renderCountryList(data) {
+function renderCountryInfo(data) {
   if (data.length > 10) {
     clearAll();
     Notify.info('Too many matches found. Please enter a more specific name.');
